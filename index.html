@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Solicitud de Servicio Técnico</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header>
+    <h1>Solicitud de Servicio Técnico</h1>
+  </header>
+
+  <main>
+    <form id="formServicio" novalidate>
+      <fieldset>
+        <legend>Datos del solicitante</legend>
+
+        <label for="nombre">Nombre completo*</label>
+        <input type="text" id="nombre" name="nombre" required>
+        <small class="error" id="error-nombre" aria-live="polite"></small>
+
+        <label for="correo">Correo electrónico*</label>
+        <input type="email" id="correo" name="correo" required>
+        <small class="error" id="error-correo" aria-live="polite"></small>
+
+        <label for="telefono">Teléfono de contacto*</label>
+        <input type="tel" id="telefono" name="telefono" maxlength="10" required>
+        <small class="error" id="error-telefono" aria-live="polite"></small>
+      </fieldset>
+
+      <fieldset>
+        <legend>Información del dispositivo</legend>
+
+        <label for="tipo">Tipo de dispositivo*</label>
+        <select id="tipo" name="tipo" required>
+          <option value="">Seleccione...</option>
+          <option value="Laptop">Laptop</option>
+          <option value="Teléfono">Teléfono</option>
+          <option value="Tablet">Tablet</option>
+           <option value="Computador">Computador</option>
+          <option value="Otro">Otro</option>
+        </select>
+        <small class="error" id="error-tipo" aria-live="polite"></small>
+
+        <div id="campo-otro" class="oculto">
+          <label for="otroTipo">Especifique el dispositivo</label>
+          <input type="text" id="otroTipo" name="otroTipo">
+        </div>
+
+        <label for="marca">Marca y modelo*</label>
+        <input type="text" id="marca" name="marca" required>
+        <small class="error" id="error-marca" aria-live="polite"></small>
+
+        <label for="fecha">Fecha preferida de servicio*</label>
+        <input type="date" id="fecha" name="fecha" required>
+        <small class="error" id="error-fecha" aria-live="polite"></small>
+      </fieldset>
+
+      <fieldset>
+        <legend>Detalles del problema</legend>
+
+        <label for="descripcion">Descripción del problema (50–300 caracteres)*</label>
+        <textarea id="descripcion" name="descripcion" minlength="50" maxlength="300" required></textarea>
+        <div class="contador"><span id="contador">0</span>/300</div>
+        <small class="error" id="error-descripcion" aria-live="polite"></small>
+
+        <label>Urgencia*</label>
+        <div>
+          <label><input type="radio" name="urgencia" value="Baja" required> Baja</label>
+          <label><input type="radio" name="urgencia" value="Media"> Media</label>
+          <label><input type="radio" name="urgencia" value="Alta"> Alta</label>
+        </div>
+        <div id="aviso-urgencia" class="oculto aviso">⚠ Atención: solicitudes urgentes tienen prioridad.</div>
+        <small class="error" id="error-urgencia" aria-live="polite"></small>
+
+        <div class="terminos">
+          <label><input type="checkbox" id="terminos" required> Acepto términos y condiciones*</label>
+          <small class="error" id="error-terminos" aria-live="polite"></small>
+        </div>
+      </fieldset>
+
+      <div class="botones">
+        <button type="button" id="revisar">Revisar solicitud</button>
+        <button type="reset" id="limpiar">Limpiar</button>
+      </div>
+    </form>
+  </main>
+
+  <!-- Modal de resumen -->
+  <div id="modalResumen" class="modal">
+    <div class="modal-contenido">
+      <span class="cerrar">&times;</span>
+      <h2>Resumen de la Solicitud</h2>
+      <div id="resumenDatos"></div>
+      <button id="confirmar">Confirmar envío</button>
+    </div>
+  </div>
+
+  <footer>
+    <p>© 2025 Servicio Técnico K Y & D - Proyecto Formulario</p>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>
